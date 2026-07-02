@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 310">
+<defs>
+<filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="p" x1="0" x2="1"><stop stop-color="#8a2be2"/><stop offset=".55" stop-color="#b666ff"/><stop offset="1" stop-color="#5d16a8"/></linearGradient>
+</defs>
+<rect width="980" height="310" fill="none"/>
+<path d="M82 84 L118 34 L148 88 L194 48 L188 116" fill="none" stroke="#8a2be2" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M70 128 C210 42 394 54 560 96 C678 126 775 118 912 52" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" opacity=".95"/>
+<text x="54" y="184" font-family="Arial Black, Impact, sans-serif" font-size="114" fill="white" font-style="italic" filter="url(#glow)" transform="skewX(-10)">TOM'S</text>
+<text x="188" y="260" font-family="Arial Black, Impact, sans-serif" font-size="86" fill="url(#p)" font-style="italic" transform="skewX(-10)">GARAGE</text>
+<path d="M128 268 C304 296 502 286 776 236" stroke="#8a2be2" stroke-width="10" fill="none" stroke-linecap="round"/>
+<text x="224" y="302" font-family="Arial, sans-serif" font-size="24" fill="#e6e6ee" letter-spacing="9">SPECIALIZING IN THE CARS WE LOVE</text>
+</svg>
