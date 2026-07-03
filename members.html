@@ -38,7 +38,7 @@
       <div class="card">
         <div class="kicker">Sign In</div>
         <h2>Garage Login.</h2>
-        <form action="javascript:void(0)" class="form" onsubmit="signIn(event)">
+        <form action="javascript:void(0)" class="form" id="signInForm">
           <input class="field full" id="loginEmail" type="email" placeholder="Email" required>
           <input class="field full" id="loginPassword" type="password" placeholder="Password" required>
           <button class="btn btn-primary full" type="submit">Sign In</button>
@@ -48,7 +48,7 @@
       <div class="card">
         <div class="kicker">Create Account</div>
         <h2>Become a Member.</h2>
-        <form action="javascript:void(0)" class="form" onsubmit="signUp(event)">
+        <form action="javascript:void(0)" class="form" id="signUpForm">
           <input class="field" id="signupName" placeholder="Full name" required>
           <input class="field" id="signupPhone" placeholder="Phone">
           <input class="field full" id="signupEmail" type="email" placeholder="Email" required>
@@ -61,7 +61,7 @@
     <section id="portalBox" class="section" style="display:none">
       <div class="grid three">
         <div class="card"><small>Member</small><strong id="memberName">Garage Member</strong><p id="memberEmail"></p><span class="badge" id="memberRole">customer</span></div>
-        <div class="card"><small>Referral Code</small><strong id="memberReferralCode">Pending</strong><p>Share this code with friends.</p><button class="btn btn-primary" onclick="copyReferralBackend()">Copy Code</button></div>
+        <div class="card"><small>Referral Code</small><strong id="memberReferralCode">Pending</strong><p>Share this code with friends.</p><button class="btn btn-primary" id="copyReferralBtn">Copy Code</button></div>
         <div class="card"><small>Active Credits</small><div class="credit" id="creditTotal">$0</div><p>Credits approved by Tom's Garage.</p></div>
       </div>
 
@@ -69,7 +69,7 @@
         <div class="card">
           <div class="kicker">Vehicles</div>
           <h2>Add vehicle.</h2>
-          <form action="javascript:void(0)" class="form" onsubmit="addVehicleBackend(event)">
+          <form action="javascript:void(0)" class="form" id="vehicleForm">
             <input class="field" id="vehicleName" placeholder="Nickname, ex: My 335i">
             <input class="field" id="vehicleInfo" placeholder="Year / Make / Model" required>
             <input class="field" id="vehicleMileage" placeholder="Mileage">
@@ -103,12 +103,15 @@
       </div>
 
       <div class="section">
-        <button class="btn" onclick="signOutMember()">Sign Out</button>
+        <button class="btn" id="signOutBtn">Sign Out</button>
       </div>
     </section>
   </main>
 
   <footer class="footer">Tom's Garage — Garage Member Portal</footer>
-  <script type="module" src="member-backend.js?v=202-login-fix"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=203"></script>
+<script src="member-backend.js?v=203"></script>
 </body>
 </html>
