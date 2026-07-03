@@ -1,16 +1,25 @@
-# Tomsgarage702 Live Update v1.3
+# Tomsgarage702 Live Update v1.5
+
+Phase 1 complete.
 
 Upload/replace these files at the root of your GitHub repo:
 
 - index.html
-- tg-logo-main.png
-- hero-cover.jpg
-- hero-bmw-front.jpg
-- hero-bmw-rear.jpg
-- gallery-01.jpg through gallery-12.jpg
+- thanks.html
+- tg-logo-hero-hq.png
+- tg-icon-hq.png
+- tg-badge-hq.png
+- favicon.png
 
-What changed in v1.3:
-- Replaced the top logo with the original crown graffiti logo
-- Replaced the main cover image with the newly uploaded BMW night shot
-- Fixed the inquiry section so fields are editable
-- Added working Text Inquiry / Email Inquiry / Copy Inquiry actions
+Keep your existing gallery/cover photos.
+
+What changed:
+- Higher-resolution upscaled logo assets
+- Top-left nav uses `tg-icon-hq.png`
+- Hero area uses `tg-logo-hero-hq.png`
+- Added favicon
+- Inquiry form now submits through FormSubmit to tomsgarage702@gmail.com
+- Added `thanks.html` confirmation page
+
+Important:
+The first real form submission may send an activation/confirmation email to tomsgarage702@gmail.com. Click the confirmation link once, then future submissions should send normally.
