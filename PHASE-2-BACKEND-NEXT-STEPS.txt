@@ -1,0 +1,32 @@
+Tom's Garage Phase 2 Backend Next Steps
+
+This v1.8 package adds the Garage Member Portal frontend.
+
+To make accounts real, the next backend setup should add:
+1. Authentication
+   - Owner/admin login
+   - Customer login
+   - Employee roles
+
+2. Database tables
+   - profiles
+   - customers
+   - vehicles
+   - repair_records
+   - invoices
+   - referral_codes
+   - referral_credits
+   - employee_permissions
+
+3. Admin permissions
+   - Owner: full control
+   - Admin: customers/jobs/invoices
+   - Tech: assigned repairs/notes
+   - Customer: own vehicles/history/payments
+
+4. Payments later
+   - PayPal invoice/deposit checkout
+   - Payment status saved to customer account
+
+Recommended next phase:
+v1.9 = connect Supabase auth/database skeleton.
