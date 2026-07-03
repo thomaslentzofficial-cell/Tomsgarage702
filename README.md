@@ -1,17 +1,15 @@
-# Tomsgarage702 Live Update v1.6 - Vector Logo Rebuild
+# Tomsgarage702 Live Update v1.6
 
-Upload/replace these files at the root of your GitHub repo:
-
+Replace these files in the root of your GitHub repo:
 - index.html
 - thanks.html
-- tg-logo-vector.svg
-- tg-icon-vector.svg
+- tg-logo-main-v2.png
 
 What changed:
-- Rebuilt the selected logo as SVG/vector-style assets instead of cropped PNGs
-- SVG logos stay crisp on desktop and mobile
-- Main hero logo is slightly smaller to avoid cut-off
-- Top-left icon now uses the crisp vector icon
-- Inquiry form remains the working FormSubmit version
+- Uses the new approved main logo in the hero section
+- Logo is smaller so it is not stretched or cut off
+- Hero background was adjusted so the car is easier to see
+- Mobile hero text/logo sizing was reduced to show more of the car
+- Thank-you page now uses the same updated main logo
 
-Keep all other existing files.
+Keep your other files exactly as they are.
