@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin Dashboard | Tom's Garage</title>
-  <meta name="description" content="Tom's Garage Phase 3 admin dashboard for members, vehicles, repairs, credits, and permissions.">
+  <title>Featured Member Builds | Tom's Garage</title>
+  <meta name="description" content="Featured Garage Member builds from Tom's Garage.">
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
 :root{
@@ -50,106 +50,45 @@ h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
     <a class="brand" href="/"><img src="tg-icon-hq.png" alt="Tom's Garage icon"><div>Tom's <span>Garage</span></div></a>
     <div class="nav-actions">
       <a class="btn" href="/">Main Site</a>
-      <a class="btn" href="members.html">Member Portal</a>
-      <a class="btn btn-primary" href="#admin">Admin Dashboard</a>
+      <a class="btn" href="members.html">Garage Login</a>
+      <a class="btn btn-primary" href="#builds">Featured Builds</a>
     </div>
   </nav>
 
-  <main class="wrap" id="admin">
+  <main class="wrap" id="builds">
     <section class="hero-panel">
-      <div class="kicker">Phase 3</div>
-      <h1>Admin Dashboard.</h1>
-      <p>Manage Garage Members, vehicles, repair records, referral credits, invoices, and employee permissions from one command center.</p>
-      <div class="notice"><b>Static prototype:</b> this dashboard is ready for layout and workflow testing. Real secure login, database storage, and permission enforcement come with the backend connection.</div>
+      <div class="kicker">Garage Member Builds</div>
+      <h1>Featured Member Builds.</h1>
+      <p>A clean portfolio home for standout customer cars, Garage Member builds, and the European projects Tom's Garage gets behind.</p>
     </section>
 
-    <section class="section grid three">
-      <div class="card"><small>Garage Members</small><strong id="statMembers">0</strong><p>Customers in the admin prototype.</p></div>
-      <div class="card"><small>Open Jobs</small><strong id="statJobs">0</strong><p>Jobs currently marked open.</p></div>
-      <div class="card"><small>Referral Credits</small><strong id="statCredits">$0</strong><p>Total credits assigned.</p></div>
+    <section class="case-grid">
+      <div class="case-hero">
+        <img src="gallery-12.jpg" alt="Featured silver BMW 335 member build">
+      </div>
+      <div class="case-side">
+        <img src="gallery-11.jpg" alt="BMW front view">
+        <img src="gallery-01.jpg" alt="BMW street euro build">
+      </div>
     </section>
 
     <section class="section grid two">
-      <div class="card">
-        <div class="kicker">Create Garage Member</div>
-        <h2>Add customer.</h2>
-        <form class="form" onsubmit="adminAddMember(event)">
-          <input class="field" id="adminName" placeholder="Customer name" required>
-          <input class="field" id="adminPhone" placeholder="Phone" required>
-          <input class="field" id="adminEmail" placeholder="Email">
-          <input class="field" id="adminVehicle" placeholder="Vehicle">
-          <input class="field" id="adminCredit" placeholder="Starting credit, ex: 25">
-          <select class="field" id="adminStatus">
-            <option>Active</option>
-            <option>Lead</option>
-            <option>Waiting Approval</option>
-          </select>
-          <button class="btn btn-primary full" type="submit">Add Member</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <div class="kicker">Create Repair Record</div>
-        <h2>Add job.</h2>
-        <form class="form" onsubmit="adminAddJob(event)">
-          <input class="field" id="jobCustomer" placeholder="Customer name" required>
-          <input class="field" id="jobVehicle" placeholder="Vehicle" required>
-          <input class="field" id="jobTitle" placeholder="Repair / job title" required>
-          <select class="field" id="jobStatus">
-            <option>Open</option>
-            <option>Waiting Parts</option>
-            <option>Waiting Approval</option>
-            <option>Complete</option>
-          </select>
-          <textarea class="field full" id="jobNotes" placeholder="Repair notes"></textarea>
-          <button class="btn btn-primary full" type="submit">Add Repair Record</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section card">
-      <div class="kicker">Garage Members</div>
-      <h2>Customer account manager.</h2>
-      <table class="table">
-        <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Vehicle</th><th>Credit</th><th>Status</th></tr></thead>
-        <tbody id="memberRows"></tbody>
-      </table>
-    </section>
-
-    <section class="section card">
-      <div class="kicker">Repair Records</div>
-      <h2>Job history manager.</h2>
-      <table class="table">
-        <thead><tr><th>Customer</th><th>Vehicle</th><th>Job</th><th>Status</th><th>Notes</th></tr></thead>
-        <tbody id="jobRows"></tbody>
-      </table>
-    </section>
-
-    <section class="section grid two">
-      <div class="card">
-        <div class="kicker">Employee Permissions</div>
-        <h2>Role system.</h2>
-        <table class="table">
-          <thead><tr><th>Role</th><th>Permissions</th></tr></thead>
-          <tbody>
-            <tr><td><span class="badge">Owner</span></td><td>Full access, payments, credits, employee permissions.</td></tr>
-            <tr><td><span class="badge">Admin</span></td><td>Customers, vehicles, jobs, invoices, credits.</td></tr>
-            <tr><td><span class="badge">Tech</span></td><td>Assigned jobs, repair notes, vehicle history.</td></tr>
-            <tr><td><span class="badge">Customer</span></td><td>Own vehicles, repair history, payments, referral credits.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card">
-        <div class="kicker">Phase 4 Ready</div>
-        <h2>Payments next.</h2>
-        <p>This admin area is now structured for invoice creation and payment tracking. The next phase connects PayPal checkout and stores payment status to customer accounts.</p>
-        <div class="notice"><b>Next backend build:</b> Supabase auth/database + protected admin pages + PayPal payment records.</div>
-      </div>
+      <article class="card card-img">
+        <img src="gallery-12.jpg" alt="Silver BMW 335">
+        <div class="body">
+          <small>Featured Build</small>
+          <h3>Silver 335</h3>
+          <p>Featured Garage Member build. More details, parts, before/after notes, and service history can be added once each portfolio case study is built out.</p>
+        </div>
+      </article>
+      <article class="card">
+        <small>Coming Next</small>
+        <h3>Build Case Studies</h3>
+        <p>Each build can eventually get its own page with the vehicle, customer notes, repairs performed, performance parts installed, photos, invoices, and referral credit history.</p>
+      </article>
     </section>
   </main>
 
-  <footer class="footer">Tom's Garage Admin Dashboard — Phase 3</footer>
-  <script src="admin.js"></script>
+  <footer class="footer">Tom's Garage — Featured Member Builds</footer>
 </body>
 </html>

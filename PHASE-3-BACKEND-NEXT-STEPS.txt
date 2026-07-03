@@ -1,0 +1,47 @@
+Tom's Garage Phase 3 Status
+
+Frontend completed:
+- Member portal page
+- Featured Member Builds page
+- Admin dashboard page
+- Customer manager prototype
+- Repair record manager prototype
+- Referral credit field prototype
+- Employee role/permission layout
+- Payment placeholders
+
+Important:
+This is still a static frontend prototype. It is not secure for real admin/customer data until connected to authentication and a backend database.
+
+Recommended Phase 3 Backend Implementation:
+1. Supabase Auth
+   - Owner/admin login
+   - Customer login
+   - Employee accounts
+
+2. Database tables
+   - profiles
+   - customers
+   - vehicles
+   - repair_records
+   - invoices
+   - payments
+   - referral_codes
+   - referral_credits
+   - user_roles
+
+3. Security / Row Level Security
+   - Customers only see their own records
+   - Techs only see assigned jobs
+   - Admins can manage jobs and customers
+   - Owner has full access
+
+4. Vercel environment variables
+   - Supabase project URL
+   - Supabase anon key
+   - Server-only service role key for protected admin operations
+
+5. Phase 4 Payments
+   - PayPal checkout
+   - invoice/deposit buttons
+   - payment confirmation stored to customer account
