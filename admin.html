@@ -3,47 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin Dashboard | Tom's Garage</title>
-  <meta name="description" content="Tom's Garage Phase 3 admin dashboard for members, vehicles, repairs, credits, and permissions.">
+  <title>Backend Admin Dashboard | Tom's Garage</title>
+  <meta name="description" content="Tom's Garage backend admin dashboard.">
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
-:root{
-  --black:#050505;--panel:#0d0d14;--panel2:#141420;--purple:#8a2be2;--purple2:#b666ff;
-  --white:#fff;--muted:#b9b9c3;--line:rgba(255,255,255,.12);--shadow:0 0 40px rgba(138,43,226,.25);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 80% 0%,rgba(138,43,226,.20),transparent 30%),#050505;color:white;font-family:Arial,Helvetica,sans-serif;line-height:1.5;overflow-x:hidden}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}img{max-width:100%;display:block}
-.nav{position:sticky;top:0;z-index:40;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.brand img{height:44px;width:auto}.brand span{color:var(--purple2)}
-.nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em;font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;cursor:pointer}
-.btn-primary{border:none;background:linear-gradient(135deg,var(--purple),#c071ff);box-shadow:0 0 28px rgba(138,43,226,.28)}
-.btn-danger{border-color:rgba(255,85,85,.4);color:#ffb8b8}
-.wrap{max-width:1180px;margin:0 auto;padding:70px 5vw}
-.hero-panel{border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(138,43,226,.18),transparent 38%),rgba(12,12,18,.92);padding:34px;box-shadow:var(--shadow);overflow:hidden}
-.kicker{color:var(--purple2);letter-spacing:.32em;text-transform:uppercase;font-size:12px;font-weight:1000;margin-bottom:12px}
-h1{font-size:clamp(42px,8vw,94px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;margin:0}
-h2{font-size:clamp(30px,5vw,58px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;margin:0}
-h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
-.grid{display:grid;gap:16px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}
-.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));padding:22px}
-.card-img{padding:0;overflow:hidden}.card-img img{width:100%;height:310px;object-fit:cover}.card-img .body{padding:22px}
-.card strong{display:block;font-size:20px}.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:6px}
-.section{margin-top:34px}
-.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-.field{width:100%;border:1px solid var(--line);background:#0e0e15;color:white;border-radius:16px;padding:14px}
-.full{grid-column:1/-1}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;margin-top:18px}
-.table th,.table td{border-bottom:1px solid var(--line);padding:14px;text-align:left;color:#ddd}.table th{color:var(--purple2);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
-.badge{display:inline-flex;border:1px solid rgba(182,102,255,.35);background:rgba(138,43,226,.11);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
-.notice{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);border-radius:20px;padding:18px;color:#d8d8e0;margin-top:18px}.notice b{color:white}
-.footer{border-top:1px solid var(--line);padding:28px 5vw;color:#999;text-align:center}
-.case-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:34px}.case-hero{border:1px solid var(--line);border-radius:30px;overflow:hidden;background:#111}.case-hero img{width:100%;height:520px;object-fit:cover}.case-side{display:grid;gap:18px}.case-side img{width:100%;height:250px;object-fit:cover;border-radius:24px;border:1px solid var(--line)}
-@media(max-width:860px){
-  .nav{align-items:flex-start}.brand img{height:38px}.grid.two,.grid.three,.form,.case-grid{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding:44px 5vw}.hero-panel{padding:26px}.nav-actions .btn{padding:10px 12px;font-size:11px}.case-hero img{height:330px}.case-side img{height:220px}
-}
-</style>
+:root{--black:#050505;--panel:#0d0d14;--panel2:#141420;--purple:#8a2be2;--purple2:#b666ff;--white:#fff;--muted:#b9b9c3;--line:rgba(255,255,255,.12);--shadow:0 0 40px rgba(138,43,226,.25)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,rgba(138,43,226,.20),transparent 30%),#050505;color:white;font-family:Arial,Helvetica,sans-serif;line-height:1.5;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}img{max-width:100%;display:block}
+.nav{position:sticky;top:0;z-index:40;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.brand img{height:44px;width:auto}.brand span{color:var(--purple2)}.nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em;font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;cursor:pointer}.btn-primary{border:none;background:linear-gradient(135deg,var(--purple),#c071ff);box-shadow:0 0 28px rgba(138,43,226,.28)}
+.wrap{max-width:1180px;margin:0 auto;padding:70px 5vw}.hero-panel{border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(138,43,226,.18),transparent 38%),rgba(12,12,18,.92);padding:34px;box-shadow:var(--shadow);overflow:hidden}.kicker{color:var(--purple2);letter-spacing:.32em;text-transform:uppercase;font-size:12px;font-weight:1000;margin-bottom:12px}h1{font-size:clamp(42px,8vw,94px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;margin:0}h2{font-size:clamp(30px,5vw,58px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;margin:0}h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
+.grid{display:grid;gap:16px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));padding:22px}.card strong{display:block;font-size:20px}.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:6px}.section{margin-top:34px}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.field{width:100%;border:1px solid var(--line);background:#0e0e15;color:white;border-radius:16px;padding:14px}.full{grid-column:1/-1}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;margin-top:18px}.table th,.table td{border-bottom:1px solid var(--line);padding:14px;text-align:left;color:#ddd}.table th{color:var(--purple2);text-transform:uppercase;letter-spacing:.12em;font-size:11px}.badge{display:inline-flex;border:1px solid rgba(182,102,255,.35);background:rgba(138,43,226,.11);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.notice{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);border-radius:20px;padding:18px;color:#d8d8e0;margin-top:18px}.notice b{color:white}.footer{border-top:1px solid var(--line);padding:28px 5vw;color:#999;text-align:center}
+@media(max-width:860px){.nav{align-items:flex-start}.brand img{height:38px}.grid.two,.grid.three,.form{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding:44px 5vw}.hero-panel{padding:26px}.nav-actions .btn{padding:10px 12px;font-size:11px}}
+  </style>
 </head>
 <body>
   <nav class="nav">
@@ -51,105 +22,115 @@ h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
     <div class="nav-actions">
       <a class="btn" href="/">Main Site</a>
       <a class="btn" href="members.html">Member Portal</a>
-      <a class="btn btn-primary" href="#admin">Admin Dashboard</a>
+      <button class="btn btn-primary" onclick="adminSignOut()">Sign Out</button>
     </div>
   </nav>
 
-  <main class="wrap" id="admin">
+  <main class="wrap">
     <section class="hero-panel">
-      <div class="kicker">Phase 3</div>
-      <h1>Admin Dashboard.</h1>
-      <p>Manage Garage Members, vehicles, repair records, referral credits, invoices, and employee permissions from one command center.</p>
-      <div class="notice"><b>Static prototype:</b> this dashboard is ready for layout and workflow testing. Real secure login, database storage, and permission enforcement come with the backend connection.</div>
+      <div class="kicker">Backend Admin</div>
+      <h1>Garage Control Center.</h1>
+      <p>Real admin dashboard connected to your Supabase database.</p>
+      <div class="notice" id="adminMessage">Sign in with the owner/admin account.</div>
     </section>
 
-    <section class="section grid three">
-      <div class="card"><small>Garage Members</small><strong id="statMembers">0</strong><p>Customers in the admin prototype.</p></div>
-      <div class="card"><small>Open Jobs</small><strong id="statJobs">0</strong><p>Jobs currently marked open.</p></div>
-      <div class="card"><small>Referral Credits</small><strong id="statCredits">$0</strong><p>Total credits assigned.</p></div>
+    <section id="adminAuth" class="section card">
+      <div class="kicker">Admin Login</div>
+      <h2>Owner/admin sign in.</h2>
+      <form class="form" onsubmit="adminSignIn(event)">
+        <input class="field" id="adminEmail" type="email" placeholder="Email" required>
+        <input class="field" id="adminPassword" type="password" placeholder="Password" required>
+        <button class="btn btn-primary full" type="submit">Sign In</button>
+      </form>
     </section>
 
-    <section class="section grid two">
-      <div class="card">
-        <div class="kicker">Create Garage Member</div>
-        <h2>Add customer.</h2>
-        <form class="form" onsubmit="adminAddMember(event)">
-          <input class="field" id="adminName" placeholder="Customer name" required>
-          <input class="field" id="adminPhone" placeholder="Phone" required>
-          <input class="field" id="adminEmail" placeholder="Email">
-          <input class="field" id="adminVehicle" placeholder="Vehicle">
-          <input class="field" id="adminCredit" placeholder="Starting credit, ex: 25">
-          <select class="field" id="adminStatus">
-            <option>Active</option>
-            <option>Lead</option>
-            <option>Waiting Approval</option>
-          </select>
-          <button class="btn btn-primary full" type="submit">Add Member</button>
-        </form>
-      </div>
+    <section id="adminApp" style="display:none">
+      <section class="section grid three">
+        <div class="card"><small>Admin</small><strong id="adminName">Admin</strong><p><span class="badge" id="adminRole">admin</span></p></div>
+        <div class="card"><small>Garage Members</small><strong id="statMembers">0</strong><p>Total profiles.</p></div>
+        <div class="card"><small>Open Jobs</small><strong id="statJobs">0</strong><p>Repair records not complete.</p></div>
+        <div class="card"><small>Active Credits</small><strong id="statCredits">$0</strong><p>Approved referral/customer credits.</p></div>
+      </section>
 
-      <div class="card">
-        <div class="kicker">Create Repair Record</div>
-        <h2>Add job.</h2>
-        <form class="form" onsubmit="adminAddJob(event)">
-          <input class="field" id="jobCustomer" placeholder="Customer name" required>
-          <input class="field" id="jobVehicle" placeholder="Vehicle" required>
-          <input class="field" id="jobTitle" placeholder="Repair / job title" required>
-          <select class="field" id="jobStatus">
-            <option>Open</option>
-            <option>Waiting Parts</option>
-            <option>Waiting Approval</option>
-            <option>Complete</option>
-          </select>
-          <textarea class="field full" id="jobNotes" placeholder="Repair notes"></textarea>
-          <button class="btn btn-primary full" type="submit">Add Repair Record</button>
-        </form>
-      </div>
-    </section>
+      <section class="section grid three">
+        <div class="card">
+          <div class="kicker">Add Repair</div>
+          <h2>Repair record.</h2>
+          <form class="form" onsubmit="adminAddJobBackend(event)">
+            <select class="field customer-select full" id="jobCustomer" required></select>
+            <input class="field" id="jobTitle" placeholder="Repair / job title" required>
+            <input class="field" id="jobCost" placeholder="Cost">
+            <input class="field" id="jobDate" type="date">
+            <select class="field" id="jobStatus">
+              <option>Open</option>
+              <option>Waiting Parts</option>
+              <option>Waiting Approval</option>
+              <option>Complete</option>
+            </select>
+            <textarea class="field full" id="jobNotes" placeholder="Repair notes"></textarea>
+            <button class="btn btn-primary full" type="submit">Add Repair</button>
+          </form>
+        </div>
 
-    <section class="section card">
-      <div class="kicker">Garage Members</div>
-      <h2>Customer account manager.</h2>
-      <table class="table">
-        <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Vehicle</th><th>Credit</th><th>Status</th></tr></thead>
-        <tbody id="memberRows"></tbody>
-      </table>
-    </section>
+        <div class="card">
+          <div class="kicker">Add Invoice</div>
+          <h2>Invoice.</h2>
+          <form class="form" onsubmit="adminAddInvoiceBackend(event)">
+            <select class="field customer-select full" id="invoiceCustomer" required></select>
+            <input class="field" id="invoiceTitle" placeholder="Invoice title" required>
+            <input class="field" id="invoiceAmount" placeholder="Amount" required>
+            <select class="field" id="invoiceStatus">
+              <option>Open</option>
+              <option>Paid</option>
+              <option>Void</option>
+            </select>
+            <input class="field full" id="invoicePaymentUrl" placeholder="PayPal / payment link for Phase 4">
+            <button class="btn btn-primary full" type="submit">Add Invoice</button>
+          </form>
+        </div>
 
-    <section class="section card">
-      <div class="kicker">Repair Records</div>
-      <h2>Job history manager.</h2>
-      <table class="table">
-        <thead><tr><th>Customer</th><th>Vehicle</th><th>Job</th><th>Status</th><th>Notes</th></tr></thead>
-        <tbody id="jobRows"></tbody>
-      </table>
-    </section>
+        <div class="card">
+          <div class="kicker">Add Credit</div>
+          <h2>Referral credit.</h2>
+          <form class="form" onsubmit="adminAddCreditBackend(event)">
+            <select class="field customer-select full" id="creditCustomer" required></select>
+            <input class="field" id="creditAmount" placeholder="Credit amount" required>
+            <input class="field" id="creditReason" placeholder="Reason / referral note">
+            <button class="btn btn-primary full" type="submit">Add Credit</button>
+          </form>
+        </div>
+      </section>
 
-    <section class="section grid two">
-      <div class="card">
-        <div class="kicker">Employee Permissions</div>
-        <h2>Role system.</h2>
+      <section class="section card">
+        <div class="kicker">Garage Members</div>
+        <h2>Customer profiles.</h2>
         <table class="table">
-          <thead><tr><th>Role</th><th>Permissions</th></tr></thead>
-          <tbody>
-            <tr><td><span class="badge">Owner</span></td><td>Full access, payments, credits, employee permissions.</td></tr>
-            <tr><td><span class="badge">Admin</span></td><td>Customers, vehicles, jobs, invoices, credits.</td></tr>
-            <tr><td><span class="badge">Tech</span></td><td>Assigned jobs, repair notes, vehicle history.</td></tr>
-            <tr><td><span class="badge">Customer</span></td><td>Own vehicles, repair history, payments, referral credits.</td></tr>
-          </tbody>
+          <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Referral Code</th><th>Role</th><th>Action</th></tr></thead>
+          <tbody id="memberRows"></tbody>
         </table>
-      </div>
+      </section>
 
-      <div class="card">
-        <div class="kicker">Phase 4 Ready</div>
-        <h2>Payments next.</h2>
-        <p>This admin area is now structured for invoice creation and payment tracking. The next phase connects PayPal checkout and stores payment status to customer accounts.</p>
-        <div class="notice"><b>Next backend build:</b> Supabase auth/database + protected admin pages + PayPal payment records.</div>
-      </div>
+      <section class="section card">
+        <div class="kicker">Repair Records</div>
+        <h2>Job history.</h2>
+        <table class="table">
+          <thead><tr><th>Customer</th><th>Vehicle</th><th>Job</th><th>Status</th><th>Cost</th><th>Notes</th></tr></thead>
+          <tbody id="jobRows"></tbody>
+        </table>
+      </section>
+
+      <section class="section card">
+        <div class="kicker">Invoices</div>
+        <h2>Payment records.</h2>
+        <table class="table">
+          <thead><tr><th>Customer</th><th>Invoice</th><th>Amount</th><th>Status</th><th>Payment URL</th></tr></thead>
+          <tbody id="invoiceRows"></tbody>
+        </table>
+      </section>
     </section>
   </main>
 
-  <footer class="footer">Tom's Garage Admin Dashboard — Phase 3</footer>
-  <script src="admin.js"></script>
+  <footer class="footer">Tom's Garage Admin Backend</footer>
+  <script type="module" src="admin-backend.js"></script>
 </body>
 </html>
