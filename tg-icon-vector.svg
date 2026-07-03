@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-label="Tom's Garage TG icon">
+  <defs>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#7c22db" flood-opacity=".65"/>
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#000000" flood-opacity=".65"/>
+    </filter>
+    <linearGradient id="purple" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#b66cff"/>
+      <stop offset=".6" stop-color="#7c22db"/>
+      <stop offset="1" stop-color="#4a0b9a"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#glow)">
+    <path d="M103 94 L139 33 L174 98 L234 30 L266 108" fill="none" stroke="#7f25dc" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M74 135 C134 110 215 108 299 136" fill="none" stroke="#7f25dc" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="139" cy="33" r="11" fill="#7f25dc"/>
+    <circle cx="234" cy="30" r="11" fill="#7f25dc"/>
+    <circle cx="103" cy="94" r="10" fill="#7f25dc"/>
+    <circle cx="266" cy="108" r="10" fill="#7f25dc"/>
+
+    <text x="70" y="285"
+      font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif"
+      font-size="224"
+      font-weight="900"
+      font-style="italic"
+      letter-spacing="-12"
+      transform="skewX(-14)"
+      stroke="#111111"
+      stroke-width="18"
+      paint-order="stroke fill"
+      fill="#ffffff">T</text>
+
+    <text x="70" y="285"
+      font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif"
+      font-size="224"
+      font-weight="900"
+      font-style="italic"
+      letter-spacing="-12"
+      transform="skewX(-14)"
+      stroke="#7c22db"
+      stroke-width="5"
+      paint-order="stroke fill"
+      fill="#ffffff">T</text>
+
+    <text x="172" y="336"
+      font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif"
+      font-size="192"
+      font-weight="900"
+      font-style="italic"
+      letter-spacing="-12"
+      transform="skewX(-12)"
+      stroke="#111111"
+      stroke-width="18"
+      paint-order="stroke fill"
+      fill="url(#purple)">G</text>
+
+    <text x="172" y="336"
+      font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif"
+      font-size="192"
+      font-weight="900"
+      font-style="italic"
+      letter-spacing="-12"
+      transform="skewX(-12)"
+      stroke="#7c22db"
+      stroke-width="5"
+      paint-order="stroke fill"
+      fill="url(#purple)">G</text>
+
+    <path d="M38 190 C124 159 242 148 357 173" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+    <path d="M125 222 C206 198 293 196 374 213" fill="none" stroke="#7c22db" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>
