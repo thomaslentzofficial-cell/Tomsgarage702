@@ -1,25 +1,16 @@
-# Tomsgarage702 Live Update v1.5
-
-Phase 1 complete.
+# Tomsgarage702 Live Update v1.5.1
 
 Upload/replace these files at the root of your GitHub repo:
 
 - index.html
 - thanks.html
-- tg-logo-hero-hq.png
-- tg-icon-hq.png
-- tg-badge-hq.png
-- favicon.png
-
-Keep your existing gallery/cover photos.
+- tg-logo-hero-hq-v2.png
+- tg-icon-hq-v2.png
 
 What changed:
-- Higher-resolution upscaled logo assets
-- Top-left nav uses `tg-icon-hq.png`
-- Hero area uses `tg-logo-hero-hq.png`
-- Added favicon
-- Inquiry form now submits through FormSubmit to tomsgarage702@gmail.com
-- Added `thanks.html` confirmation page
+- Hero logo is smaller so it no longer gets cut off
+- Updated hero logo asset for a cleaner display
+- Updated top-left icon asset and reduced its size slightly
+- Thanks page now uses the updated hero logo asset
 
-Important:
-The first real form submission may send an activation/confirmation email to tomsgarage702@gmail.com. Click the confirmation link once, then future submissions should send normally.
+Keep all other v1.5 files as-is.
