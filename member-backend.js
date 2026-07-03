@@ -2,7 +2,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 
-const configured = SUPABASE_URL && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_");
+const configured = SUPABASE_URL && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_") && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes("PASTE_");
 const supabase = configured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
 const $ = (id) => document.getElementById(id);
@@ -18,15 +18,22 @@ function msg(text){ const m = $("memberMessage"); if(m) m.textContent = text || 
 
 function requireConfig(){
   if(configured) return true;
-  msg("Backend not connected yet. Edit supabase-config.js with your Supabase URL and anon key.");
+  msg("Backend not connected yet. Check supabase-config.js. It needs your Project URL and anon public key.");
   return false;
 }
 
 async function init(){
+  preventReloadFallbacks();
   if(!requireConfig()) return;
   const { data } = await supabase.auth.getSession();
   renderAuth(data.session);
   supabase.auth.onAuthStateChange((_event, session) => renderAuth(session));
+}
+
+function preventReloadFallbacks(){
+  document.querySelectorAll("form").forEach(form => {
+    form.setAttribute("action", "javascript:void(0)");
+  });
 }
 
 async function renderAuth(session){
@@ -36,8 +43,8 @@ async function renderAuth(session){
 }
 
 window.signUp = async function(event){
-  event.preventDefault();
-  if(!requireConfig()) return;
+  if(event) event.preventDefault();
+  if(!requireConfig()) return false;
   msg("Creating account...");
   const email = $("signupEmail").value.trim();
   const password = $("signupPassword").value.trim();
@@ -51,22 +58,37 @@ window.signUp = async function(event){
   });
 
   msg(error ? error.message : "Account created. Check email if confirmation is required, then sign in.");
+  return false;
 };
 
 window.signIn = async function(event){
-  event.preventDefault();
-  if(!requireConfig()) return;
+  if(event) event.preventDefault();
+  if(!requireConfig()) return false;
   msg("Signing in...");
   const email = $("loginEmail").value.trim();
   const password = $("loginPassword").value.trim();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  msg(error ? error.message : "");
+
+  if(!email || !password){
+    msg("Enter your email and password.");
+    return false;
+  }
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if(error){
+    msg(error.message);
+    return false;
+  }
+
+  msg("Signed in. Loading your Garage Member portal...");
+  await renderAuth(data.session);
+  return false;
 };
 
 window.signOutMember = async function(){
-  if(!requireConfig()) return;
+  if(!requireConfig()) return false;
   await supabase.auth.signOut();
   msg("Signed out.");
+  return false;
 };
 
 async function loadPortal(user){
@@ -88,14 +110,14 @@ async function loadPortal(user){
   $("memberReferralCode").textContent = profile.referral_code || "Pending";
 
   await Promise.all([
-    loadVehicles(user.id),
-    loadRepairs(user.id),
-    loadInvoices(user.id),
-    loadCredits(user.id)
+    loadVehicles(),
+    loadRepairs(),
+    loadInvoices(),
+    loadCredits()
   ]);
 }
 
-async function loadVehicles(userId){
+async function loadVehicles(){
   const list = $("vehicleList");
   list.innerHTML = "";
   const { data, error } = await supabase.from("vehicles").select("*").order("created_at", { ascending: false });
@@ -117,10 +139,10 @@ async function loadVehicles(userId){
 }
 
 window.addVehicleBackend = async function(event){
-  event.preventDefault();
-  if(!requireConfig()) return;
+  if(event) event.preventDefault();
+  if(!requireConfig()) return false;
   const { data: { user } } = await supabase.auth.getUser();
-  if(!user) return;
+  if(!user) return false;
 
   const payload = {
     owner_id: user.id,
@@ -131,10 +153,11 @@ window.addVehicleBackend = async function(event){
   };
 
   const { error } = await supabase.from("vehicles").insert(payload);
-  if(error){ msg(error.message); return; }
-  event.target.reset();
+  if(error){ msg(error.message); return false; }
+  if(event) event.target.reset();
   msg("Vehicle added.");
-  await loadVehicles(user.id);
+  await loadVehicles();
+  return false;
 };
 
 async function loadRepairs(){
@@ -192,5 +215,9 @@ window.copyReferralBackend = async function(){
   const code = $("memberReferralCode").textContent;
   navigator.clipboard.writeText(code).then(() => msg("Referral code copied: " + code));
 };
+
+window.addEventListener("error", function(e){
+  msg("Page script error: " + e.message);
+});
 
 init();

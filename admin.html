@@ -37,7 +37,7 @@
     <section id="adminAuth" class="section card">
       <div class="kicker">Admin Login</div>
       <h2>Owner/admin sign in.</h2>
-      <form class="form" onsubmit="adminSignIn(event)">
+      <form action="javascript:void(0)" class="form" onsubmit="adminSignIn(event)">
         <input class="field" id="adminEmail" type="email" placeholder="Email" required>
         <input class="field" id="adminPassword" type="password" placeholder="Password" required>
         <button class="btn btn-primary full" type="submit">Sign In</button>
@@ -56,7 +56,7 @@
         <div class="card">
           <div class="kicker">Add Repair</div>
           <h2>Repair record.</h2>
-          <form class="form" onsubmit="adminAddJobBackend(event)">
+          <form action="javascript:void(0)" class="form" onsubmit="adminAddJobBackend(event)">
             <select class="field customer-select full" id="jobCustomer" required></select>
             <input class="field" id="jobTitle" placeholder="Repair / job title" required>
             <input class="field" id="jobCost" placeholder="Cost">
@@ -75,7 +75,7 @@
         <div class="card">
           <div class="kicker">Add Invoice</div>
           <h2>Invoice.</h2>
-          <form class="form" onsubmit="adminAddInvoiceBackend(event)">
+          <form action="javascript:void(0)" class="form" onsubmit="adminAddInvoiceBackend(event)">
             <select class="field customer-select full" id="invoiceCustomer" required></select>
             <input class="field" id="invoiceTitle" placeholder="Invoice title" required>
             <input class="field" id="invoiceAmount" placeholder="Amount" required>
@@ -92,7 +92,7 @@
         <div class="card">
           <div class="kicker">Add Credit</div>
           <h2>Referral credit.</h2>
-          <form class="form" onsubmit="adminAddCreditBackend(event)">
+          <form action="javascript:void(0)" class="form" onsubmit="adminAddCreditBackend(event)">
             <select class="field customer-select full" id="creditCustomer" required></select>
             <input class="field" id="creditAmount" placeholder="Credit amount" required>
             <input class="field" id="creditReason" placeholder="Reason / referral note">
@@ -131,6 +131,6 @@
   </main>
 
   <footer class="footer">Tom's Garage Admin Backend</footer>
-  <script type="module" src="admin-backend.js"></script>
+  <script type="module" src="admin-backend.js?v=202-login-fix"></script>
 </body>
 </html>

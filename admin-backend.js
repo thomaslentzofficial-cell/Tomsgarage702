@@ -2,7 +2,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 
-const configured = SUPABASE_URL && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_");
+const configured = SUPABASE_URL && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_") && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes("PASTE_");
 const supabase = configured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 const $ = (id) => document.getElementById(id);
 
@@ -21,6 +21,7 @@ function requireConfig(){
 }
 
 async function init(){
+  document.querySelectorAll('form').forEach(form => form.setAttribute('action','javascript:void(0)'));
   if(!requireConfig()) return;
   const { data } = await supabase.auth.getSession();
   renderAuth(data.session);
@@ -48,7 +49,7 @@ async function renderAuth(session){
 }
 
 window.adminSignIn = async function(event){
-  event.preventDefault();
+  if(event) event.preventDefault();
   if(!requireConfig()) return;
   const email = $("adminEmail").value.trim();
   const password = $("adminPassword").value.trim();
@@ -160,7 +161,7 @@ async function loadCredits(){
 }
 
 window.adminAddJobBackend = async function(event){
-  event.preventDefault();
+  if(event) event.preventDefault();
   const owner_id = $("jobCustomer").value;
   const payload = {
     owner_id,
@@ -178,7 +179,7 @@ window.adminAddJobBackend = async function(event){
 };
 
 window.adminAddInvoiceBackend = async function(event){
-  event.preventDefault();
+  if(event) event.preventDefault();
   const payload = {
     owner_id: $("invoiceCustomer").value,
     title: $("invoiceTitle").value.trim(),
@@ -194,7 +195,7 @@ window.adminAddInvoiceBackend = async function(event){
 };
 
 window.adminAddCreditBackend = async function(event){
-  event.preventDefault();
+  if(event) event.preventDefault();
   const payload = {
     owner_id: $("creditCustomer").value,
     amount: Number($("creditAmount").value || 0),
