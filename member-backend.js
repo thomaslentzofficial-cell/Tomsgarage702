@@ -20,6 +20,12 @@
     if(el) el.style.display = yes ? "" : "none";
   }
 
+  function statusBadge(status){
+    const s = String(status || "Open");
+    const cls = s === "Paid" ? "badge-paid" : s === "Void" ? "badge-void" : "badge-open";
+    return `<span class="badge ${cls}">${escapeHTML(s)}</span>`;
+  }
+
   function getClient(){
     const url = window.TG_SUPABASE_URL;
     const key = window.TG_SUPABASE_ANON_KEY;
@@ -166,6 +172,8 @@
     $("memberEmail").textContent = profile.email || user.email;
     $("memberRole").textContent = profile.role || "customer";
     $("memberReferralCode").textContent = profile.referral_code || "Pending";
+    const adminLink = $("adminNavLink");
+    if(adminLink && ["owner","admin","tech"].includes(profile.role)) adminLink.style.display = "";
 
     await Promise.all([loadVehicles(), loadRepairs(), loadInvoices(), loadCredits()]);
     msg("Portal loaded.");
@@ -245,12 +253,12 @@
       .order("service_date", { ascending: false });
 
     if(error){
-      rows.innerHTML = `<tr><td colspan="5">${escapeHTML(error.message)}</td></tr>`;
+      rows.innerHTML = `<tr><td colspan="6">${escapeHTML(error.message)}</td></tr>`;
       return;
     }
 
     if(!data.length){
-      rows.innerHTML = `<tr><td colspan="5">No repair records yet.</td></tr>`;
+      rows.innerHTML = `<tr><td colspan="6">No repair records yet.</td></tr>`;
       return;
     }
 
@@ -260,8 +268,9 @@
         <td>${escapeHTML(r.service_date)}</td>
         <td>${escapeHTML((r.vehicles && (r.vehicles.nickname || r.vehicles.year_make_model)) || "Vehicle")}</td>
         <td>${escapeHTML(r.title)}</td>
-        <td><span class="badge">${escapeHTML(r.status)}</span></td>
+        <td>${statusBadge(r.status)}</td>
         <td>${money(r.cost)}</td>
+        <td class="note-cell">${escapeHTML(r.notes || "No notes added yet.")}</td>
       `;
       rows.appendChild(tr);
     });
@@ -289,11 +298,11 @@
 
     data.forEach(function(i){
       const tr = document.createElement("tr");
-      const pay = i.payment_url ? `<a class="btn btn-primary" href="${escapeHTML(i.payment_url)}" target="_blank" rel="noopener">Pay Now</a>` : `<span class="badge">${escapeHTML(i.status)}</span>`;
+      const pay = i.payment_url ? `<a class="btn btn-primary btn-small" href="${escapeHTML(i.payment_url)}" target="_blank" rel="noopener">Pay Now</a>` : `${statusBadge(i.status)}`;
       tr.innerHTML = `
         <td>${escapeHTML(i.title)}</td>
         <td>${money(i.amount)}</td>
-        <td><span class="badge">${escapeHTML(i.status)}</span></td>
+        <td>${statusBadge(i.status)}</td>
         <td>${pay}</td>
       `;
       rows.appendChild(tr);
