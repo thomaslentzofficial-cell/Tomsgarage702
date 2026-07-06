@@ -21,7 +21,7 @@
     <a class="brand" href="/"><img src="tg-icon-hq.png" alt="Tom's Garage icon"><div>Tom's <span>Garage</span></div></a>
     <div class="nav-actions">
       <a class="btn" href="/">Main Site</a>
-      <a class="btn" href="members.html">Member Portal</a>
+      <a class="btn" href="members.html">Member Portal</a><a class="btn" href="payments.html">Payments</a>
       <button class="btn btn-primary" id="adminSignOutBtn">Sign Out</button>
     </div>
   </nav>
@@ -30,7 +30,7 @@
     <section class="hero-panel">
       <div class="kicker">Backend Admin</div>
       <h1>Garage Control Center.</h1>
-      <p>Real admin dashboard connected to your Supabase database.</p>
+      <p>Real admin dashboard connected to Supabase, with Xero-first invoice links and Stripe / Apple Pay / Tap to Pay prep.</p>
       <div class="notice" id="adminMessage">Sign in with the owner/admin account.</div>
     </section>
 
@@ -74,7 +74,7 @@
 
         <div class="card">
           <div class="kicker">Add Invoice</div>
-          <h2>Invoice.</h2>
+          <h2>Xero invoice.</h2>
           <form action="javascript:void(0)" class="form" id="adminInvoiceForm">
             <select class="field customer-select full" id="invoiceCustomer" required></select>
             <input class="field" id="invoiceTitle" placeholder="Invoice title" required>
@@ -84,7 +84,7 @@
               <option>Paid</option>
               <option>Void</option>
             </select>
-            <input class="field full" id="invoicePaymentUrl" placeholder="PayPal / payment link for Phase 4">
+            <input class="field full" id="invoicePaymentUrl" placeholder="Xero invoice link / Stripe payment link / PayPal backup link">
             <button class="btn btn-primary full" type="submit">Add Invoice</button>
           </form>
         </div>
@@ -123,7 +123,7 @@
         <div class="kicker">Invoices</div>
         <h2>Payment records.</h2>
         <table class="table">
-          <thead><tr><th>Customer</th><th>Invoice</th><th>Amount</th><th>Status</th><th>Payment URL</th></tr></thead>
+          <thead><tr><th>Customer</th><th>Invoice</th><th>Amount</th><th>Status</th><th>Payment Link</th><th>Action</th></tr></thead>
           <tbody id="invoiceRows"></tbody>
         </table>
       </section>
@@ -134,6 +134,6 @@
   
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=203"></script>
-<script src="admin-backend.js?v=203"></script>
+<script src="admin-backend.js?v=204"></script>
 </body>
 </html>

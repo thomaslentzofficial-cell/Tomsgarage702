@@ -289,11 +289,11 @@
 
     data.forEach(function(i){
       const tr = document.createElement("tr");
-      const pay = i.payment_url ? `<a class="btn btn-primary" href="${escapeHTML(i.payment_url)}">Pay</a>` : `<span class="badge">${escapeHTML(i.status)}</span>`;
+      const pay = i.payment_url ? `<a class="btn btn-primary" href="${escapeHTML(i.payment_url)}" target="_blank" rel="noopener">Pay Now</a>` : `<span class="badge">${escapeHTML(i.status)}</span>`;
       tr.innerHTML = `
         <td>${escapeHTML(i.title)}</td>
         <td>${money(i.amount)}</td>
-        <td>${escapeHTML(i.status)}</td>
+        <td><span class="badge">${escapeHTML(i.status)}</span></td>
         <td>${pay}</td>
       `;
       rows.appendChild(tr);
