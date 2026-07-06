@@ -3,43 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Backend Admin Dashboard | Tom's Garage</title>
-  <meta name="description" content="Tom's Garage backend admin dashboard.">
+  <title>Admin Dashboard | Tom's Garage</title>
+  <meta name="description" content="Tom's Garage admin dashboard for customers, vehicles, service requests, repairs, invoices, payments, and credits.">
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
-:root{--black:#050505;--panel:#0d0d14;--panel2:#141420;--purple:#8a2be2;--purple2:#b666ff;--white:#fff;--muted:#b9b9c3;--line:rgba(255,255,255,.12);--shadow:0 0 40px rgba(138,43,226,.25)}
+:root{--black:#050505;--purple:#8a2be2;--purple2:#b666ff;--muted:#b9b9c3;--line:rgba(255,255,255,.12);--shadow:0 0 40px rgba(138,43,226,.25)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,rgba(138,43,226,.20),transparent 30%),#050505;color:white;font-family:Arial,Helvetica,sans-serif;line-height:1.5;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}img{max-width:100%;display:block}
-.nav{position:sticky;top:0;z-index:40;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.brand img{height:44px;width:auto}.brand span{color:var(--purple2)}.nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em;font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;cursor:pointer}.btn-primary{border:none;background:linear-gradient(135deg,var(--purple),#c071ff);box-shadow:0 0 28px rgba(138,43,226,.28)}
-.wrap{max-width:1180px;margin:0 auto;padding:70px 5vw}.hero-panel{border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(138,43,226,.18),transparent 38%),rgba(12,12,18,.92);padding:34px;box-shadow:var(--shadow);overflow:hidden}.kicker{color:var(--purple2);letter-spacing:.32em;text-transform:uppercase;font-size:12px;font-weight:1000;margin-bottom:12px}h1{font-size:clamp(42px,8vw,94px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;margin:0}h2{font-size:clamp(30px,5vw,58px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;margin:0}h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
-.grid{display:grid;gap:16px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));padding:22px}.card strong{display:block;font-size:20px}.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:6px}.section{margin-top:34px}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.field{width:100%;border:1px solid var(--line);background:#0e0e15;color:white;border-radius:16px;padding:14px}.full{grid-column:1/-1}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;margin-top:18px}.table th,.table td{border-bottom:1px solid var(--line);padding:14px;text-align:left;color:#ddd}.table th{color:var(--purple2);text-transform:uppercase;letter-spacing:.12em;font-size:11px}.badge{display:inline-flex;border:1px solid rgba(182,102,255,.35);background:rgba(138,43,226,.11);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.notice{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);border-radius:20px;padding:18px;color:#d8d8e0;margin-top:18px}.notice b{color:white}.footer{border-top:1px solid var(--line);padding:28px 5vw;color:#999;text-align:center}
-@media(max-width:860px){.nav{align-items:flex-start}.brand img{height:38px}.grid.two,.grid.three,.form{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding:44px 5vw}.hero-panel{padding:26px}.nav-actions .btn{padding:10px 12px;font-size:11px}}
-  .table-wrap{overflow-x:auto}.badge-paid{border-color:rgba(90,255,160,.35);background:rgba(90,255,160,.10);color:#bbffd7}.badge-open{border-color:rgba(255,206,90,.35);background:rgba(255,206,90,.10);color:#ffe3a3}.badge-void{border-color:rgba(255,90,90,.35);background:rgba(255,90,90,.10);color:#ffb8b8}.quick-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.upload-box{border:1px dashed rgba(182,102,255,.45);background:rgba(138,43,226,.06);border-radius:22px;padding:22px}.note-cell{max-width:300px}.table{min-width:720px}.grid.four{grid-template-columns:repeat(4,1fr)}
-@media(max-width:860px){.grid.four{grid-template-columns:1fr}}
-  </style>
+.nav{position:sticky;top:0;z-index:40;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.brand img{height:44px;width:auto}.brand span{color:var(--purple2)}
+.nav-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em;font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;cursor:pointer}.btn-primary{border:none;background:linear-gradient(135deg,var(--purple),#c071ff);box-shadow:0 0 28px rgba(138,43,226,.28)}.btn-danger{border-color:rgba(255,85,85,.38);color:#ffb8b8}.btn-small{padding:9px 12px;font-size:11px}
+.wrap{max-width:1180px;margin:0 auto;padding:70px 5vw}.hero-panel{border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(138,43,226,.18),transparent 38%),rgba(12,12,18,.92);padding:34px;box-shadow:var(--shadow);overflow:hidden}.kicker{color:var(--purple2);letter-spacing:.32em;text-transform:uppercase;font-size:12px;font-weight:1000;margin-bottom:12px}
+h1{font-size:clamp(42px,8vw,94px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;margin:0}h2{font-size:clamp(30px,5vw,58px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;margin:0}h3{margin:0 0 8px;text-transform:uppercase;font-size:22px}p{color:#d0d0da}
+.grid{display:grid;gap:16px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(4,1fr)}.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));padding:22px}.card strong{display:block;font-size:20px}.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:6px}.section{margin-top:34px}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.field{width:100%;border:1px solid var(--line);background:#0e0e15;color:white;border-radius:16px;padding:14px}.full{grid-column:1/-1}.table-wrap{overflow-x:auto}.table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;margin-top:18px;min-width:720px}.table th,.table td{border-bottom:1px solid var(--line);padding:14px;text-align:left;color:#ddd;vertical-align:top}.table th{color:var(--purple2);text-transform:uppercase;letter-spacing:.12em;font-size:11px}.badge{display:inline-flex;border:1px solid rgba(182,102,255,.35);background:rgba(138,43,226,.11);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.badge-paid{border-color:rgba(90,255,160,.35);background:rgba(90,255,160,.10);color:#bbffd7}.badge-open{border-color:rgba(255,206,90,.35);background:rgba(255,206,90,.10);color:#ffe3a3}.badge-void{border-color:rgba(255,90,90,.35);background:rgba(255,90,90,.10);color:#ffb8b8}.badge-blue{border-color:rgba(90,190,255,.35);background:rgba(90,190,255,.10);color:#c7e9ff}
+.notice{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);border-radius:20px;padding:18px;color:#d8d8e0;margin-top:18px}.notice b{color:white}.credit{font-size:54px;font-weight:1000;letter-spacing:-.06em;color:var(--purple2);line-height:1}.footer{border-top:1px solid var(--line);padding:28px 5vw;color:#999;text-align:center}.muted{color:#aaa}.quick-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.upload-box{border:1px dashed rgba(182,102,255,.45);background:rgba(138,43,226,.06);border-radius:22px;padding:22px}.upload-box input{margin-top:10px}.note-cell{max-width:320px}.media-links{display:flex;gap:8px;flex-wrap:wrap}.media-links a{border:1px solid var(--line);border-radius:999px;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.progress{height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:10px}.progress span{display:block;height:100%;width:0;background:linear-gradient(135deg,var(--purple),#c071ff)}
+@media(max-width:860px){.nav{align-items:flex-start}.brand img{height:38px}.grid.two,.grid.three,.grid.four,.form{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding:44px 5vw}.hero-panel{padding:26px}.nav-actions .btn{padding:10px 12px;font-size:11px}.table{min-width:760px}}
+</style>
 </head>
 <body>
   <nav class="nav">
     <a class="brand" href="/"><img src="tg-icon-hq.png" alt="Tom's Garage icon"><div>Tom's <span>Garage</span></div></a>
     <div class="nav-actions">
       <a class="btn" href="/">Main Site</a>
-      <a class="btn" href="members.html">Member Portal</a><a class="btn" href="payments.html">Payments</a>
-      <button class="btn btn-primary" id="adminSignOutBtn">Sign Out</button>
+      <a class="btn" href="members.html">Member Portal</a>
+      <a class="btn" href="payments.html">Payments</a>
+      <button class="btn btn-primary" id="adminSignOutBtn" type="button">Sign Out</button>
     </div>
   </nav>
 
   <main class="wrap">
     <section class="hero-panel">
-      <div class="kicker">Backend Admin</div>
-      <h1>Garage Control Center.</h1>
-      <p>Real admin dashboard connected to Supabase, with Xero-first invoice links and Stripe / Apple Pay / Tap to Pay prep.</p>
+      <div class="kicker">Phase 6 Admin</div>
+      <h1>Service Request Dashboard.</h1>
+      <p>Review customer requests, view photos/videos, update status, add vehicles, create repair records, attach Xero invoice links, and manage credits.</p>
       <div class="notice" id="adminMessage">Sign in with the owner/admin account.</div>
     </section>
 
     <section id="adminAuth" class="section card">
       <div class="kicker">Admin Login</div>
       <h2>Owner/admin sign in.</h2>
-      <form action="javascript:void(0)" class="form" id="adminSignInForm">
+      <form class="form" id="adminSignInForm" action="javascript:void(0)">
         <input class="field" id="adminEmail" type="email" placeholder="Email" required>
         <input class="field" id="adminPassword" type="password" placeholder="Password" required>
         <button class="btn btn-primary full" type="submit">Sign In</button>
@@ -50,24 +52,36 @@
       <section class="section grid four">
         <div class="card"><small>Admin</small><strong id="adminName">Admin</strong><p><span class="badge" id="adminRole">admin</span></p></div>
         <div class="card"><small>Garage Members</small><strong id="statMembers">0</strong><p>Total profiles.</p></div>
+        <div class="card"><small>Open Requests</small><strong id="statRequests">0</strong><p>Requests needing review.</p></div>
         <div class="card"><small>Open Jobs</small><strong id="statJobs">0</strong><p>Repair records not complete.</p></div>
-        <div class="card"><small>Active Credits</small><strong id="statCredits">$0</strong><p>Approved referral/customer credits.</p></div>
+      </section>
+
+      <section class="section card">
+        <div class="kicker">Service Requests</div>
+        <h2>Customer submissions.</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Date</th><th>Customer</th><th>Vehicle</th><th>Request</th><th>Urgency</th><th>Status</th><th>Media</th><th>Update</th></tr></thead>
+            <tbody id="serviceRequestRows"></tbody>
+          </table>
+        </div>
       </section>
 
       <section class="section grid two">
         <div class="card">
           <div class="kicker">1. Invite Customer</div>
           <h2>Send portal link.</h2>
-          <p>Customers create their own secure account first. After they sign up, they appear in your customer list.</p>
+          <p>Customers create their secure account first. After signup, they appear in the customer list.</p>
           <div class="quick-actions">
             <button class="btn btn-primary" id="copyInviteBtn" type="button">Copy Invite Link</button>
             <a class="btn" href="sms:?body=Create%20your%20Tom's%20Garage%20member%20account:%20https://tomsgarage702.com/members.html">Text Invite</a>
           </div>
         </div>
+
         <div class="card">
           <div class="kicker">2. Add Vehicle</div>
           <h2>Customer vehicle.</h2>
-          <form action="javascript:void(0)" class="form" id="adminVehicleForm">
+          <form class="form" id="adminVehicleForm" action="javascript:void(0)">
             <select class="field customer-select full" id="vehicleCustomer" required></select>
             <input class="field" id="adminVehicleNickname" placeholder="Nickname, ex: John's 335i">
             <input class="field" id="adminVehicleInfo" placeholder="Year / Make / Model" required>
@@ -80,9 +94,9 @@
 
       <section class="section grid three">
         <div class="card">
-          <div class="kicker">Add Repair</div>
+          <div class="kicker">3. Add Repair</div>
           <h2>Repair record.</h2>
-          <form action="javascript:void(0)" class="form" id="adminJobForm">
+          <form class="form" id="adminJobForm" action="javascript:void(0)">
             <select class="field customer-select full" id="jobCustomer" required></select>
             <select class="field full" id="jobVehicle"><option value="">No vehicle selected</option></select>
             <input class="field" id="jobTitle" placeholder="Repair / job title" required>
@@ -94,15 +108,15 @@
               <option>Waiting Approval</option>
               <option>Complete</option>
             </select>
-            <textarea class="field full" id="jobNotes" placeholder="Repair notes"></textarea>
+            <textarea class="field full" id="jobNotes" placeholder="Professional repair notes shown to customer"></textarea>
             <button class="btn btn-primary full" type="submit">Add Repair</button>
           </form>
         </div>
 
         <div class="card">
-          <div class="kicker">Add Invoice</div>
-          <h2>Xero invoice.</h2>
-          <form action="javascript:void(0)" class="form" id="adminInvoiceForm">
+          <div class="kicker">4. Add Xero Invoice</div>
+          <h2>Payment link.</h2>
+          <form class="form" id="adminInvoiceForm" action="javascript:void(0)">
             <select class="field customer-select full" id="invoiceCustomer" required></select>
             <input class="field" id="invoiceTitle" placeholder="Invoice title" required>
             <input class="field" id="invoiceAmount" placeholder="Amount" required>
@@ -117,12 +131,12 @@
         </div>
 
         <div class="card">
-          <div class="kicker">Add Credit</div>
+          <div class="kicker">5. Add Credit</div>
           <h2>Referral credit.</h2>
-          <form action="javascript:void(0)" class="form" id="adminCreditForm">
+          <form class="form" id="adminCreditForm" action="javascript:void(0)">
             <select class="field customer-select full" id="creditCustomer" required></select>
             <input class="field" id="creditAmount" placeholder="Credit amount" required>
-            <input class="field" id="creditReason" placeholder="Reason / referral note">
+            <input class="field full" id="creditReason" placeholder="Reason / referral note">
             <button class="btn btn-primary full" type="submit">Add Credit</button>
           </form>
         </div>
@@ -131,45 +145,32 @@
       <section class="section card">
         <div class="kicker">Garage Members</div>
         <h2>Customer profiles.</h2>
-        <div class="table-wrap"><table class="table">
-          <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Referral Code</th><th>Role</th><th>ID</th></tr></thead>
-          <tbody id="memberRows"></tbody>
-        </table></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Referral Code</th><th>Role</th><th>ID</th></tr></thead><tbody id="memberRows"></tbody></table></div>
       </section>
 
       <section class="section card">
         <div class="kicker">Vehicles</div>
         <h2>Customer vehicles.</h2>
-        <div class="table-wrap"><table class="table">
-          <thead><tr><th>Customer</th><th>Nickname</th><th>Vehicle</th><th>Mileage</th><th>Notes</th></tr></thead>
-          <tbody id="vehicleRows"></tbody>
-        </table></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Customer</th><th>Nickname</th><th>Vehicle</th><th>Mileage</th><th>Notes</th></tr></thead><tbody id="vehicleRows"></tbody></table></div>
       </section>
 
       <section class="section card">
         <div class="kicker">Repair Records</div>
         <h2>Job history.</h2>
-        <div class="table-wrap"><table class="table">
-          <thead><tr><th>Customer</th><th>Vehicle</th><th>Job</th><th>Status</th><th>Cost</th><th>Notes</th></tr></thead>
-          <tbody id="jobRows"></tbody>
-        </table></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Customer</th><th>Vehicle</th><th>Job</th><th>Status</th><th>Cost</th><th>Notes</th></tr></thead><tbody id="jobRows"></tbody></table></div>
       </section>
 
       <section class="section card">
         <div class="kicker">Invoices</div>
         <h2>Payment records.</h2>
-        <div class="table-wrap"><table class="table">
-          <thead><tr><th>Customer</th><th>Invoice</th><th>Amount</th><th>Status</th><th>Payment Link</th><th>Action</th></tr></thead>
-          <tbody id="invoiceRows"></tbody>
-        </table></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Customer</th><th>Invoice</th><th>Amount</th><th>Status</th><th>Payment Link</th><th>Action</th></tr></thead><tbody id="invoiceRows"></tbody></table></div>
       </section>
     </section>
   </main>
 
   <footer class="footer">Tom's Garage Admin Backend</footer>
-  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js?v=203"></script>
-<script src="admin-backend.js?v=205"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js?v=203"></script>
+  <script src="admin-backend.js?v=206"></script>
 </body>
 </html>
